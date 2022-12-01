@@ -57,7 +57,7 @@
                                 <h4>{{ createConversation(value.opdDate) }}</h4>
                                 <p>{{ DateConversation(value.opdDate) }}</p>
                             </td>
-                            
+
 
                         </tr>
                     </thead>
@@ -74,7 +74,7 @@
                                 <span @click="redirect(index)" v-if="value.shiftNo == 1">{{ value.docName }}</span>
                             </td>
                         </tr>
-                        <tr >
+                        <tr>
                             <td>noon</td>
                             <td v-for="(value, index) in arrayData0">
                                 <span v-if="value.shiftNo == 2">{{ value.docName }}</span>
@@ -83,8 +83,8 @@
                     </tbody>
                 </table>
             </div>
-            
-            
+
+
 
         </div>
     </div>
@@ -109,72 +109,57 @@ export default {
             arrayData0: [],
             arrayData1: null,
             showMore: false,
-
-
-            
         }
     },
     methods: {
         getData() {
+            var d = new Date();
+            var startDate = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+            d.setDate(d.getDate() + 13);
+            var de = d;
+            var endDate = de.getFullYear() + "-" + (de.getMonth()+1) + "-" + de.getDate();
+            console.log(endDate);
             const data = {
-
-
-                "deptCode": "woman",
-                "deptRoom": "236",
-                "docCode": "3732",
-                "endDate": "2022-12-13",
+                "deptCode": this.$route?.params?.deptCode,
+                "deptRoom": "",
+                "docCode": "",
+                "endDate": endDate,
                 "pass": "Kumar",
-                "shiftNo": "1",
-                "startDate": "2022-11-30",
+                "shiftNo": "",
+                "startDate": startDate,
                 "userId": "webapp"
             }
             _services.outGetWebSchebasic(data)
-            .then(res => {
-             
-                this.arrayData0 = res.data.data;
-            _services.outGetWebSchebasic(data).then(res => {
-                this.arrayData0 = res.data.data
-                console.log(this.$route.query.abc)
-                /* this.arrayData0 = res.data.data[0]
-                this.arrayData1 = res.data.data[1] */
-               
-
-                
-               
-
-            }).catch(err => {
-                console.log(err)
-            })
-        },
+                .then(res => {
+                    this.arrayData0 = res.data.data;
+                    _services.outGetWebSchebasic(data).then(res => {
+                        this.arrayData0 = res.data.data
+                        console.log(this.$route.query.abc)
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                },
     },
-    redirect(index) {
-
-
-  
-
+        redirect(index) {
             const data2send = {
-                "deptName" : toRaw(this.arrayData0?.[index].deptName),
-                "deptCode" : toRaw(this.arrayData0?.[index].deptCode),
-                "opdDate" : toRaw(this.arrayData0?.[index].opdDate),
-                "shiftNo" : toRaw(this.arrayData0?.[index].shiftNo),
+                "deptName": toRaw(this.arrayData0?.[index].deptName),
+                "deptCode": toRaw(this.arrayData0?.[index].deptCode),
+                "opdDate": toRaw(this.arrayData0?.[index].opdDate),
+                "shiftNo": toRaw(this.arrayData0?.[index].shiftNo),
                 "docName": toRaw(this.arrayData0?.[index].docName),
                 "webRoomDesc": toRaw(this.arrayData0?.[index].webRoomDesc),
                 "roomDesc": toRaw(this.arrayData0?.[index].roomDesc),
-                "nextNum" : toRaw(this.arrayData0?.[index].nextNum),
-                "deptRoom" : toRaw(this.arrayData0?.[index].deptRoom),
-                "docCode" : toRaw(this.arrayData0?.[index].docCode),
-                "regIp" : toRaw(this.arrayData0?.[index].regIp),
-                "regWay" : toRaw(this.arrayData0?.[index].regWay),
+                "nextNum": toRaw(this.arrayData0?.[index].nextNum),
+                "deptRoom": toRaw(this.arrayData0?.[index].deptRoom),
+                "docCode": toRaw(this.arrayData0?.[index].docCode),
+                "regIp": toRaw(this.arrayData0?.[index].regIp),
+                "regWay": toRaw(this.arrayData0?.[index].regWay),
             }
-          
-           
-                 
-            console.log('========> data of sub',data2send)
-            this.$router.push({name: 'Booking',
-            params: data2send ,
-            
-            
-        }) 
+            console.log('========> data of sub', data2send)
+            this.$router.push({
+                name: 'Booking',
+                params: data2send,
+            })
         },
         createConversation: function (id) {
             var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -185,7 +170,7 @@ export default {
         },
         DateConversation: function (id) {
             var d = id.split("-");
-            var dayName = d[1]+'/'+d[2];
+            var dayName = d[1] + '/' + d[2];
             return dayName;
             /* console.log(dayName) */
         }

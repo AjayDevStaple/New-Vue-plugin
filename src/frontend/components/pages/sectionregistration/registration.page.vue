@@ -1,17 +1,17 @@
 <template>
     <div class="title2">
         <h1 class="mjTitle">
-         Section registration
-          <div class="note-group">
-            <p class="note">
-                 . Children's vaccines are open for appointments and children
-                  are encouraged to be vaccinated. Please click on the type of
-                  vaccine you want to administer and register at the Pediatric
-                  Vaccination Clinic.
-            </p>
-          </div>
+            Section registration
+            <div class="note-group">
+                <p class="note">
+                    . Children's vaccines are open for appointments and children
+                    are encouraged to be vaccinated. Please click on the type of
+                    vaccine you want to administer and register at the Pediatric
+                    Vaccination Clinic.
+                </p>
+            </div>
         </h1>
-      </div>
+    </div>
 
     <div class="mobile-accord">
         <Accordion>
@@ -37,24 +37,27 @@
                     <span>{{ value.deptSys }}</span>
                     <i class="fas fa-chevron-circle-down btn-i"></i>
                 </h3>
-                <div class="content" >
-                    <ul >
+                <div class="content">
+                    <ul>
                         <li v-for="(abcdata, index) in value.deptList">
-                            <a :href="`${url}#/subservice?deptSysCode=${value.deptSysCode}&deptCode=${value.deptSys}`"
+                            <!-- <a :href="`${url}#/subservice?deptSysCode=${value.deptSysCode}&deptCode=${value.deptSys}`"
                                 class="dot_title" title="COVID-19 Vaccination: BNT">
                                    {{ abcdata.deptName }}
-                            </a>
+                            </a> -->
+
+                            <span @click="redirect(abcdata.deptCode)">{{ abcdata.deptName }}</span>
                         </li>
                     </ul>
                 </div>
             </section>
-            
+
         </article>
     </div>
 </template>
   
 <script lang="ts">
 import { _services } from './../../../../Services/Api/index'
+import { isProxy, toRaw } from 'vue';
 
 export default {
     name: 'HomePage',
@@ -71,7 +74,7 @@ export default {
         getData() {
             var currentUrlorigin = window.location.origin;
             var currentUrl = window.location.pathname;
-            console.log(`Current URL => ${currentUrlorigin+currentUrl}`);
+            console.log(`Current URL => ${currentUrlorigin + currentUrl}`);
             const data = {
                 "pass": "Kumar",
                 "type": "dept",
@@ -79,13 +82,23 @@ export default {
             }
             _services.outGetWebList(data).then(res => {
                 this.arrayData0 = res.data.data
-                this.url = currentUrlorigin+currentUrl;         
+                this.url = currentUrlorigin + currentUrl;
                 console.log('res1>>>>>', res.data.data[0])
             }).catch(err => {
                 console.log(err)
             })
-            
-        }
+        },
+        redirect(index) {
+            const data2send = {
+                "deptCode": toRaw(index),
+                "parentPage": "registration",
+            }
+            /* console.log('========> data of sub', data2send) */
+            this.$router.push({
+                name: 'SubService',
+                params: data2send,
+            })
+        },
     },
     beforeMount() {
         this.getData()
