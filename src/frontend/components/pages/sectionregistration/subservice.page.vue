@@ -43,47 +43,71 @@
             </div>
 
             <hr>
-            <div class="register-table">
+            <div class="register-table" v-for='index in mainNumber' :key='index'>
                 <table class="table-border-radius">
                     <thead>
                         <tr>
-                            <td>
+                            <td v-if="index == 1">
                                 <button class="dropbtn" @click="showMore = !showMore" v-if="showMore"><i
                                         class="fas fa-chevron-circle-up"></i></button>
                                 <button class="dropbtn" @click="showMore = !showMore" v-else="showMore"><i
                                         class="fas fa-chevron-circle-down"></i></button>
                             </td>
-                            <td v-for="(value, index) in arrayData0">
+                            <td v-if="(index == 2)">
+                                <button class="dropbtn" @click="(showmoretwo = !showmoretwo)" v-if="showmoretwo"><i
+                                        class="fas fa-chevron-circle-up"></i></button>
+                                <button class="dropbtn" @click="(showmoretwo = !showmoretwo)" v-else="showmoretwo"><i
+                                        class="fas fa-chevron-circle-down"></i></button>
+                            </td>
+
+                            <td v-for="(value, index) in getShortList(7)" :key="index" v-if="index == 1">
                                 <h4>{{ createConversation(value.opdDate) }}</h4>
                                 <p>{{ DateConversation(value.opdDate) }}</p>
                             </td>
-
-
+                            <td v-for="(value, index) in getShortListother(14)" :key="index" v-if="(index == 2)">
+                                <h4>{{ createConversation(value.opdDate) }} 222</h4>
+                                <p>{{ DateConversation(value.opdDate) }}</p>
+                            </td>
                         </tr>
                     </thead>
                     <tbody v-show="showMore">
                         <tr>
-                            <td>
+                            <td v-if="index == 1">
                                 <p>
                                     morning
                                 </p>
                             </td>
-                            <td v-for="(value, index) in arrayData0">
-                                <span @click="redirect(index)" v-if="value.shiftNo == 1">{{ value.docName }}</span>
+                            <td v-for="(value, index) in getShortList(7)" :key="index" v-if="index == 1">
+                                <span @click="redirect(index)" v-bind:id="index" v-if="value.shiftNo == 1">{{ value.docName }}</span>
                             </td>
                         </tr>
                         <tr>
-                            <td><p>noon</p></td>
-                            <td v-for="(value, index) in arrayData0">
+                            <td v-if="index == 1"><p>noon</p></td>
+                            <td v-for="(value, index) in getShortList(7)" :key="index" v-if="index == 1">
+                                <span v-if="value.shiftNo == 2">{{ value.docName }}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody v-show="showmoretwo">
+                        <tr>
+                            <td v-if="(index == 2)">
+                                <p>
+                                    morning
+                                </p>
+                            </td>
+                            <td v-for="(value, index) in getShortListother(14)" :key="index" v-if="(index == 2)">
+                                <span @click="redirect(index)" v-bind:id="index" v-if="value.shiftNo == 1">{{ value.docName }}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td v-if="(index == 2)"><p>noon</p></td>
+                            <td v-for="(value, index) in getShortListother(14)" :key="index" v-if="(index == 2)">
                                 <span v-if="value.shiftNo == 2">{{ value.docName }}</span>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-
-
         </div>
     </div>
 
@@ -107,6 +131,8 @@ export default {
             arrayData0: [],
             arrayData1: null,
             showMore: false,
+            mainNumber: null,
+            showmoretwo: false,
         }
     },
     methods: {
@@ -132,12 +158,19 @@ export default {
                     this.arrayData0 = res.data.data;
                     _services.outGetWebSchebasic(data).then(res => {
                         this.arrayData0 = res.data.data
+
+                        if ( this.arrayData0.length > 1  ) {
+                            this.mainNumber = 2;
+                        } else {
+                            this.mainNumber = 1;
+                        }
+                        //alert(this.arrayData0.length);
                         console.log(this.$route.query.abc)
                     }).catch(err => {
                         console.log(err)
                     })
                 },
-    },
+        },
         redirect(index) {
             const data2send = {
                 "deptName": toRaw(this.arrayData0?.[index].deptName),
@@ -171,7 +204,13 @@ export default {
             var dayName = d[1] + '/' + d[2];
             return dayName;
             /* console.log(dayName) */
-        }
+        },
+        getShortList(shortListSize) {
+            return this.arrayData0.slice(0, shortListSize);
+        },
+        getShortListother(shortListSize) {
+            return this.arrayData0.slice(7, shortListSize);
+        },
     },
     beforeMount() {
         this.getData()
