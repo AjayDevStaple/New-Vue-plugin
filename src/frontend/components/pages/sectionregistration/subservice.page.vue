@@ -122,7 +122,7 @@ export default {
             const data = {
                 "deptCode": this.$route?.params?.deptCode,
                 "deptRoom": "",
-                "docCode": "",
+                "docCode": this.$route?.params?.docCode,
                 "endDate": endDate,
                 "pass": "Kumar",
                 "shiftNo": "",

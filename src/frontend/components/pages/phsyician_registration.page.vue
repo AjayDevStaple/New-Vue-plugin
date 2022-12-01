@@ -106,7 +106,7 @@
                           >{{efgdata.docName}}</font></font></a> -->
 
 
-                          <span @click="handleRedirect(index)">{{efgdata.docName}}</span>
+                          <span @click="handleRedirect(abcdata.deptCode, efgdata.docCode)">{{efgdata.docName}}</span>
                     
                   </li>
                  
@@ -167,33 +167,18 @@ export default {
 
  
     },
-    handleRedirect(index) {
-console.log(index)
-      
-           
-              const data2send = {
-                // "deptName" : toRaw(this.arrayData.[index].deptName),
-                // "deptCode" : toRaw(this.arrayData0?.[index].deptCode),
-                // "opdDate" : toRaw(this.arrayData0?.[index].opdDate),
-                // "shiftNo" : toRaw(this.arrayData0?.[index].shiftNo),
-                // "docName": toRaw(this.arrayData0?.[index].docName),
-                // "webRoomDesc": toRaw(this.arrayData0?.[index].webRoomDesc),
-                // "roomDesc": toRaw(this.arrayData0?.[index].roomDesc),
-                // "nextNum" : toRaw(this.arrayData0?.[index].nextNum),
-                // "deptRoom" : toRaw(this.arrayData0?.[index].deptRoom),
-                // "docCode" : toRaw(this.arrayData0?.[index].docCode),
-                // "regIp" : toRaw(this.arrayData0?.[index].regIp),
-                // "regWay" : toRaw(this.arrayData0?.[index].regWay),
+    handleRedirect(index, index2) {
+            const data2send = {
+                "deptCode" : toRaw(index),
+                "docCode" : toRaw(index2),
             }
           
             console.log(data2send)
 
-      this.$router.push({name: "",
-    params: data2send})
-
-
-      
-
+            this.$router.push({
+              name: "SubService",
+              params: data2send
+            })
     },
 
     scroll(id) {  
@@ -202,7 +187,7 @@ console.log(index)
       });
     }
   },
-  handleRedirect(index){
+  /* handleRedirect(index){
     const data2send = {
 
     }
@@ -210,7 +195,7 @@ console.log(index)
     this.$router.push({name: 'Booking',
             params: data2send })
 
-  },
+  }, */
   beforeMount() {
     this.getData();
   },
