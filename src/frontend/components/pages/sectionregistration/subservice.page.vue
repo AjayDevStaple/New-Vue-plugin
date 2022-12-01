@@ -69,13 +69,11 @@
                                 </p>
                             </td>
                             <td v-for="(value, index) in arrayData0">
-
-
                                 <span @click="redirect(index)" v-if="value.shiftNo == 1">{{ value.docName }}</span>
                             </td>
                         </tr>
                         <tr>
-                            <td>noon</td>
+                            <td><p>noon</p></td>
                             <td v-for="(value, index) in arrayData0">
                                 <span v-if="value.shiftNo == 2">{{ value.docName }}</span>
                             </td>

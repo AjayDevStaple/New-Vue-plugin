@@ -15,14 +15,17 @@
                       <div class="row">
                         <div class="col-md-6 firstDivCont">
                           <div class="divFlex">
-                          <span class="tags">Date of visit</span>
-                          <span>2022/11/16 (Wednesday)</span>
+                          <span class="tags">Consultation date</span>
+                          <div>
+                            <span>{{this.$route.params.opdDate}}</span>
+                          <p>{{this.$route.params.shiftNo}}</p>
+                          </div>
                           </div>
                         </div>
                         <div class="col-md-6 firstDivCont">
                           <div class="divFlex">
-                              <span class="tags">Section</span>
-                          <span>Family Medicine</span>
+                              <span class="tags">Consultation Number</span>
+                              <span>{{this.$route.params.seqNo}}</span>
                           </div>
                         </div>
                       </div>
@@ -30,33 +33,28 @@
                       <div class="row">
                         <div class="col-md-6 firstDivCont">
                          <div class="divFlex">
-                          <span class="tags">doctor</span>
-                          <span> Zhang Xianzheg</span>
+                          <span class="tags">Name</span>
+                          <span>{{this.$route.params.docName}}</span>
                          </div>
                         </div>
                         <div class="col-md-6 firstDivCont">
                           <div class="divFlex">
-                              <span class="tags">Consultation period</span>
-                              <span
-                                >He picked up the burnt end of the branch and made a mark on the
-                                stone. Day 52 if the marks on the stone were accurate. He couldn't
-                                be sure. Day and nights had begun to blend together creating
-                                confusion, but he knew it was a long time. Much too long.</span
-                              >
+                              <span class="tags">Consultation location</span>
+                              <span>{{this.$route.params.roomDesc}}</span>
                           </div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-6 firstDivCont">
                          <div class="divFlex">
-                          <span class="tags"> Consultation location</span>
-                          <span> Consulting room 97, Floor 05 , Outpatient Building</span>
+                          <span class="tags">doctor </span>
+                          <span>{{this.$route.params.deptName}}</span>
                          </div>
                         </div>
                         <div class="col-md-6 firstDivCont"> 
                           <div class="divFlex">
-                              <span class="tags"> appoinment number</span>
-                              <span> 009</span>
+                              <span class="tags">Refer to estimated time of arrival</span>
+                              <span>{{this.$route.params.rsvOpdTime}}</span>
                           </div>
                         </div>
                       </div>
@@ -93,7 +91,7 @@
                 <span class="btn">build a healthier self</span>
                     <span class="btn">News/Education</span>
                     <span class="btn blue-btn">Print</span>
-    
+    <!-- <p> {{this.$route.params}}</p> -->
             </div>
            </div>
           </Row>
@@ -110,6 +108,7 @@
     export default {
       name: 'Booking-Success',
       components: {},
+      props: ['data'],
       methods: {},
       data() {
         return {

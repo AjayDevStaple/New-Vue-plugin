@@ -31,6 +31,7 @@
   align-items: center;
   justify-content: center;
   border: solid 1px #ddd;
+  padding: 0 !important;
 }
 .entry-content ol:not([class*=wp-]) li, .entry-content ul:not([class*=wp-]) li {
     padding-bottom: 0 !important;
@@ -395,6 +396,10 @@
 .p-regs .owl-item li {
   border-radius: 0.5rem 0.5rem 0 0;
 }
+.p-regs .owl-item li span {
+padding: 0.5rem 1.5rem;
+    display: block;
+}
 .doctor-list .tabs li a {
   display: block;
   margin-top: 0.5rem;
@@ -450,5 +455,27 @@
 
 li a {
   color: #444 !important;
+}
+.register .list ul li> span {
+  position: relative;
+  font-weight: 400;
+  padding: .6rem .8rem .6rem 1rem;
+}
+.register .list ul li> span:hover {
+  background-color: #326c9e;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.register .list ul li > span::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 4px;
+  background-color: #447a6a;
+  border-radius: 50%;
+  left: 4px;
+  top: 45%;
 }
 

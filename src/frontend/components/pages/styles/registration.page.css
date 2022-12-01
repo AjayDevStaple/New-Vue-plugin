@@ -110,6 +110,28 @@
 .register-btn:hover {
     background: #e4bb4f
 }
+.register .list-body .content li > span::before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 4px;
+    background-color: #447a6a;
+    border-radius: 50%;
+    left: 4px;
+    top: 45%;
+}
+.register .list-body .content li > span{
+    font-size: 1.25rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    position: relative;
+}
+.register .list-body .content li > span:hover {
+    font-weight: 700;
+    color: #ffffff;
+    background: #326c9e;
+    cursor: pointer;
+    border-radius: 3px;
+}
 
 .register-btn a {
     display: flex;

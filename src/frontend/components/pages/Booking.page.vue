@@ -63,13 +63,14 @@
                     <div class="radio-btns">
                         <input
                           type="radio"
-                          id="loginID_3"
+                          id="loginID_1"
                           name="idType"
-                          value="0"
+                          value="1"
                           onclick="show_birth(3)"
                           v-model="idType"
+                          checked
                         />
-                        <label>
+                        <label for="loginID_1">
                           <font style="vertical-align: inherit">
                             <font style="vertical-align: inherit">ID number</font>
                           </font>
@@ -79,31 +80,15 @@
                       <div class="radio-btns">
                         <input
                           type="radio"
-                          id="loginID_3"
-                          name="idType"
-                          value="1"
-                          onclick="show_birth(3)"
-                          v-model="idType"
-                        />
-                        <label>
-                          <font style="vertical-align: inherit">
-                            <font style="vertical-align: inherit">Medical record number</font>
-                          </font>
-                        </label>
-                      </div>
-              
-                      <div class="radio-btns">
-                        <input
-                          type="radio"
-                          id="loginID_3"
+                          id="loginID_2"
                           name="idType"
                           value="2"
                           onclick="show_birth(3)"
                           v-model="idType"
                         />
-                        <label>
+                        <label for="loginID_2">
                           <font style="vertical-align: inherit">
-                            <font style="vertical-align: inherit">passport number</font>
+                            <font style="vertical-align: inherit">Medical record number</font>
                           </font>
                         </label>
                       </div>
@@ -117,7 +102,23 @@
                           onclick="show_birth(3)"
                           v-model="idType"
                         />
-                        <label>
+                        <label for="loginID_3">
+                          <font style="vertical-align: inherit">
+                            <font style="vertical-align: inherit">Passport number</font>
+                          </font>
+                        </label>
+                      </div>
+              
+                      <div class="radio-btns">
+                        <input
+                          type="radio"
+                          id="loginID_4"
+                          name="idType"
+                          value="4"
+                          onclick="show_birth(3)"
+                          v-model="idType"
+                        />
+                        <label for="loginID_4">
                           <font style="vertical-align: inherit">
                             <font style="vertical-align: inherit">Residance card number</font>
                           </font>
@@ -144,7 +145,7 @@
 
         
                 <div class="form-group">
-                  <label for="label"><i class="far fa-id-card"></i></label>
+                  <label for="label"><i class="fas fa-birthday-cake"></i></label>
                   <input
                     type="text"
                     name="birthdate"
@@ -164,7 +165,7 @@
                 >
         
                 <div class="form-group">
-                  <label for="label"><i class="far fa-id-card"></i></label>
+                  <label for="label"><i class="fas fa-mobile-alt"></i></label>
                   <input
                     type="text"
                     name="mobile"
@@ -182,8 +183,8 @@
                 
         <div class="btn-div">
 
-            <span class="btn" @click="handleSubmit">Confirm</span>
-                <span class="btn1">Cancel</span>
+            <span class="btn green-bg" @click="handleSubmit">Confirm</span>
+                <span class="btn btn1">Cancel</span>
 
         </div>
        
@@ -233,7 +234,27 @@ export default {
         .then((res) => {
           console.log(res.data.code)
           console.log(res.data.data)
-            // this.$router.push({name: 'Booking-Success'})  
+
+
+          const data2send = {
+            "opdDate" : this.$route.params.opdDate,
+            "shiftNo" :  this.$route.params.shiftNo,
+            "seqNo" :  "",
+            "docName" :  "",
+            "deptName" : "" ,
+              "rsvOpdTime": "" ,
+
+               
+
+            }
+
+
+          if(res.data.code == 400) {
+            this.$router.push({name: 'Booking-Success',
+          params: data2send
+          })
+          }
+              
 
           
          

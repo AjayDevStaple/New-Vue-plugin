@@ -187,15 +187,6 @@ export default {
       });
     }
   },
-  /* handleRedirect(index){
-    const data2send = {
-
-    }
-
-    this.$router.push({name: 'Booking',
-            params: data2send })
-
-  }, */
   beforeMount() {
     this.getData();
   },
