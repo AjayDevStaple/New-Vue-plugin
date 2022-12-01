@@ -4,7 +4,7 @@
 }
 .Main-div .navbar-nav li {
     list-style-type: none;
-    font-size: 19px;
+    font-size: 18px;
     box-shadow: 5px 0 0px -4px rgb(255 255 255 / 50%);
 }
 /* .Main-div .navbar-nav li.active {
@@ -54,9 +54,22 @@
 }
 .Main-div ul.navbar-nav {
     margin: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
 }
 .sub-menu {
     background-color: #4886B8 !important;
     color: whitesmoke;
     flex-direction: row;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 700;
+    /* white-space: nowrap; */
+}
+
+@media screen and (max-width:991px){
+    .Main-div ul.navbar-nav li a {
+        padding-left: 15px;
+    }
 }

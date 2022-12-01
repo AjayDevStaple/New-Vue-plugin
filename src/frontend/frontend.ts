@@ -42,9 +42,7 @@ const routes: RouteRecordRaw[] = [
     {
         name : "Booking" ,
         path: '/booking' , component : () =>  import('./../frontend/components/pages/Booking.page.vue')
-    },
-   
-    
+    },    
     {
         name: 'SubService',
         path: '/subservice', component: () => import('./components/pages/sectionregistration/subservice.page.vue')
@@ -52,7 +50,11 @@ const routes: RouteRecordRaw[] = [
     {
         name : 'Booking-Success',
         path: '/booking-successfully' , component: () => import('./components/pages/Booking-Success.page.vue')
-    }
+    },
+    {
+        name : 'See-Clinic',
+        path: '/see-clinic' , component: () => import('../frontend/components/pages/see_clinic.page.vue')
+    },
 
 ]
 

@@ -43,6 +43,9 @@ class Frontend
         wp_register_script( 'my_child_script',WP_VUE_PLUGIN_URL . 'includes/nav.js', [], rand(), true );
         wp_enqueue_script('my_child_script');
 
+        wp_register_script( 'wp-vue-bootstrap_script','https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js', [], rand(), true );
+        wp_enqueue_script('wp-vue-bootstrap_script');
+
         wp_localize_script('wp-vue-frontend', 'wpFrontendLocalizer', [
             'adminUrl' => admin_url('/'),
             'ajaxUrl' => admin_url('admin-ajax.php'),
@@ -70,7 +73,7 @@ class Frontend
                                         <a class="nav-link" href="'.$actual_link.'#/physician_registration">Physician registration</a>
                                     </li>
                                     <li class="cstm-url nav-item">
-                                        <a class="nav-link" href="#">See clinic number query</a>
+                                        <a class="nav-link" href="'.$actual_link.'#/see-clinic">See clinic number query</a>
                                     </li>
                                     <li class="cstm-url nav-item">
                                         <a class="nav-link" href="'.$actual_link.'#/inquiry_cancellation">Inquiry and Cancellation</a>

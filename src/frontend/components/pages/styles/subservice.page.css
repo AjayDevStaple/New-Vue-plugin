@@ -36,6 +36,10 @@
     border-right: solid thin #ddd;
 }
 
+table.table-border-radius thead td h4, table.table-border-radius thead td p {
+    color: #fff;
+}
+
 .sub-service table thead td .fas {
     font-size: 2.4rem;
     color: rgba(255, 255, 255, 0.8);
@@ -90,4 +94,13 @@
 button.dropbtn {
     background: transparent;
     border-color: transparent;
+}
+
+.sub-service table tr td p, .sub-service table tr td span {
+    font-size: 18px;
+    margin-bottom: 0;
+    padding: 6px 4px;
+}
+.sub-service table tr td span:hover {
+cursor: pointer;
 }
