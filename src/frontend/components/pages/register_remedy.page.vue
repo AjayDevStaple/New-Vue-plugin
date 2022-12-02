@@ -2,7 +2,7 @@
 
 
 
-   <div class="container c-diseases">
+   <div class="c-diseases">
     <div class="register"> 
         <div class="title2"> 
          <h1 class="mjTitle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Continuous prescription for chronic diseases 

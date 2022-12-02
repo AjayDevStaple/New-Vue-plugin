@@ -1,6 +1,6 @@
 <template>
 
-    <section class="container s-cansul"> 
+    <section class="s-cansul"> 
         <article class="d-none d-lg-block">
         </article> 
         <div class="register"> 
