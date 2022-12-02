@@ -12,14 +12,14 @@
       <div class="login w-100 d-flex flex-wrap justify-content-lg-between">
         <div class="form-group col-12 col-md-6 mb-3 mb-md-0">
           <label for=""><i class="fas fa-user-md"></i></label>
-          <select v-model="selected" :required @change="changeLocation" class="custom-select" name="deptCode"
+          <select  v-model="selected"  v-on:change="changeLocation($event)" :required class="custom-select" name="deptCode"
             id="deptCode">
-            <option value="">
+            <option value=""   >
    
                 <span style="vertical-align: inherit;">Please select a subject</span>
         
             </option>
-            <option v-for="option in options" v-bind:value="option.id" value="00">
+            <option  value="00">
      
                 <span style="vertical-align: inherit;">Psychology and Psychiatry</span>
          
@@ -193,6 +193,7 @@
               <span style="vertical-align: inherit;">Inquire</span>
 
           </button></div>
+         
       </div>
       <input type="hidden" name="Send">
       <input type="hidden" name="second" id="second" value="1">
@@ -200,7 +201,7 @@
     </form>
     <section style="position:relative;"><span id="main_dot" style="position:absolute;top:-120px"></span></section>
 
-    <h1 class="text-center"></h1>
+    <h1 v-if="showMore" class="text-center subHeading">{{departmentName}}</h1>
     <div class="register-table no-x">
       <table class="table-border-radius">
         <thead>
@@ -242,7 +243,7 @@
             </td>
           </tr>
         </thead>
-        <tbody v-if="this.showMore">
+        <tbody v-if="showMore">
           <tr v-for="(value, index) in respData">
             <td> {{value.maxSeqNo}}</td>
             <td> {{value.docName}}</td>
@@ -301,6 +302,8 @@ export default {
           console.log(res.data.code)
           if (res.data.code == 200) {
             this.showMore = true;
+
+            
           }
 
           this.respData = res.data.data;
@@ -309,13 +312,21 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    }, 
+    changeLocation(e) {
+   
+        var name = e.target.options[e.target.options.selectedIndex].text;
+        this.departmentName = name;
+        this.handleSubmit()
     }
   },
   data() {
     return {
-      selected: "choosse",
+      selected: "",
       respData: [],
       showMore: false,
+      departmentName: "",
+    
     }
   }
 }
