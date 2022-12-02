@@ -21,9 +21,20 @@ const outCheckFvRv = async (data) => {
 } 
 
 
+const outGetRegOpdSeqNo = async (data) => {
+  return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outGetRegOpdSeqNo` , data)
+} 
+
+
+
+
+
+
+
 export const _services = {
   outGetRegRegbasic ,
   outGetWebList,
   outGetWebSchebasic,
-  outCheckFvRv
+  outCheckFvRv,
+  outGetRegOpdSeqNo
 };

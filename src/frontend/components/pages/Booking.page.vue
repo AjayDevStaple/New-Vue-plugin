@@ -244,20 +244,14 @@ export default {
             "deptName" : "" ,
               "rsvOpdTime": "" ,
 
-               
-
             }
 
 
-          if(res.data.code == 400) {
+          if(res.data.code == 200) {
             this.$router.push({name: 'Booking-Success',
           params: data2send
           })
-          }
-              
-
-          
-         
+          }   
         })
         .catch((err) => {
           console.log(err);
@@ -275,7 +269,7 @@ export default {
   deptCode: "",
   deptRoom: "",
   docCode: "",
-  idType: "",
+  idType: "1",
   opdDate: "2022-11-29T04:43:47.780Z",
   pass: "Kumar",
   password: "",
