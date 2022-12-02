@@ -1,6 +1,6 @@
 <template>
     <div class="register">
-        <div class="container sub-service">
+        <div class="sub-service">
             <hr>
             <div class="row">
                 <div class="col-md-6 left-sub">

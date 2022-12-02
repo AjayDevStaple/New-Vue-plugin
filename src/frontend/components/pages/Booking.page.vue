@@ -1,5 +1,5 @@
 <template>
-  <div class="container b-page">
+  <div class="b-page">
     <span class="main-head"
       >Registration information
       <span class="main-head-red"
