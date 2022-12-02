@@ -9,7 +9,6 @@ import Button from 'primevue/button';
 import Card from 'primevue/card';
 import 'primevue/resources/primevue.min.css';
 
-
 const routes: RouteRecordRaw[] = [
     {
         path: '/',

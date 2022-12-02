@@ -5,12 +5,9 @@ const outGetRegRegbasic = async (data) => {
   return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outGetRegRegbasic`, data)
 }
 
-
 const outGetWebList = async (data) => {
   return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outGetWebList`, data)
 }
-
-
 
 const outGetWebSchebasic = async (data) => {
   return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outGetWebSchebasic`, data)
@@ -20,21 +17,19 @@ const outCheckFvRv = async (data) => {
   return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outCheckFvRv` , data)
 } 
 
-
 const outGetRegOpdSeqNo = async (data) => {
   return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outGetRegOpdSeqNo` , data)
 } 
 
-
-
-
-
-
+const outCnclRegRegbasic = async (data) => {
+  return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outCnclRegRegbasic` , data)
+} 
 
 export const _services = {
   outGetRegRegbasic ,
   outGetWebList,
   outGetWebSchebasic,
   outCheckFvRv,
-  outGetRegOpdSeqNo
+  outGetRegOpdSeqNo,
+  outCnclRegRegbasic
 };
