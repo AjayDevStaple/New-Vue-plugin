@@ -130,7 +130,7 @@ export default {
         return {
             arrayData0: [],
             arrayData1: null,
-            showMore: false,
+            showMore: true,
             mainNumber: null,
             showmoretwo: false,
         }
@@ -200,7 +200,11 @@ export default {
             /* console.log(dayName) */
         },
         DateConversation: function (id) {
+          
+
             var d = id.split("-");
+
+          
             var dayName = d[1] + '/' + d[2];
             return dayName;
             /* console.log(dayName) */

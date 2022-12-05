@@ -47,43 +47,30 @@
          <div class="btn-wrap"> <button type="button" onclick="javascript:location.href='health.php'" class="btn-style"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">News/ Video</font></font></button> <button type="button" onclick="javascript:location.href='register.php'" class="btn-style"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">I want to register</font></font></button> 
          </div> 
         </div> 
+     
         <article class="d-block d-lg-none">
         </article> 
        </section>
 
 </template>
 
-<script lang="ts">
-import axios from "axios";
-import {ref} from "vue";
-import type {WP_REST_API_Posts} from 'wp-types';
+<script >
 
-declare var wpFrontendLocalizer: any;
+
+
+
+
+
 
 export default {
   name: 'StopConsultation',
   components: {},
-  setup() {
-    const state = ref<{
-      posts: WP_REST_API_Posts
-    }>({
-      posts: []
-    });
-    const getPosts = async (): Promise<WP_REST_API_Posts> => {
-      console.log(`${wpFrontendLocalizer.devApiUrl}/wp/v2/posts`);
-      return (await axios.get<WP_REST_API_Posts>(`${wpFrontendLocalizer.devApiUrl}/wp/v2/posts`)).data;
-    }
-
-    getPosts().then(posts => {
-      state.value.posts = posts;
-    })
-
-    return {state};
-  },
   methods: {},
   data() {
     return {
-      value: 0
+      value: 0,
+  
+    
     }
   }
 }

@@ -9,6 +9,7 @@ import Button from 'primevue/button';
 import Card from 'primevue/card';
 import 'primevue/resources/primevue.min.css';
 
+
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
@@ -69,6 +70,7 @@ app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
 app.component('Button', Button);
 app.component('Card', Card);
+
 app.use(router)
 
 app.mount('#wp-vue-frontend-app')
