@@ -193,8 +193,22 @@
               </Col>
         </Row>
      </div>
+
+     <div class="custom-modal" v-if="showModal">
+       <div class="inner-modal-wrap">
+         <button class="close-modal" @click="(showModal = false)">X</button>
+        <div class="modal-content">
+            {{ message }}
+        </div>
+       </div>
+     </div>
+
+
+  
     </Row>
   </div>
+
+
 </template>
 
 <script lang="ts">
@@ -206,51 +220,43 @@ export default {
   props: ['data'],
   methods: {
     handleSubmit() {
-
-          //  setTimeout(() => {
-          //   this.$router.push({name: 'Booking-Success'}) 
-          //  },3000)
-   
-
-
-  const data = {
-  birthDate: this.birthDate, //input
-  deptCode: this.$route.params.deptCode,
-  deptRoom: this.$route.params.deptRoom,
-  docCode: this.$route.params.deptRoom,
-  idType: this.idType, //input
-  opdDate: this.$route.params.opdDate,
-  pass: "Kumar",
-  password: this.password,
-  patData: this.patData, //input
-  regIp: this.$route.params.regIp,
-  regWay: this.$route.params.regWay,
-  shiftNo: this.$route.params.shiftNo,
-  userId: this.userId 
-}
-
-     
+      const data = {
+          birthDate: this.birthDate, //input
+          deptCode: this.$route.params.deptCode,
+          deptRoom: this.$route.params.deptRoom,
+          docCode: this.$route.params.deptRoom,
+          idType: this.idType, //input
+          opdDate: this.$route.params.opdDate,
+          pass: "Kumar",
+          password: this.password,
+          patData: this.patData, //input
+          regIp: this.$route.params.regIp,
+          regWay: this.$route.params.regWay,
+          shiftNo: this.$route.params.shiftNo,
+          userId: this.userId ,
+      }
       _services.outCheckFvRv(data)
         .then((res) => {
-          console.log(res.data.code)
+          console.log(res.data.msg)
           console.log(res.data.data)
-
-
           const data2send = {
-            "opdDate" : this.$route.params.opdDate,
-            "shiftNo" :  this.$route.params.shiftNo,
-            "seqNo" :  "",
-            "docName" :  "",
-            "deptName" : "" ,
+              "opdDate" : this.$route.params.opdDate,
+              "shiftNo" :  this.$route.params.shiftNo,
+              "seqNo" :  "",
+              "docName" :  "",
+              "deptName" : "" ,
               "rsvOpdTime": "" ,
-
             }
-
 
           if(res.data.code == 200) {
             this.$router.push({name: 'Booking-Success',
           params: data2send
           })
+          } else {
+          
+            this.showModal = true;
+            this.message = res.data.msg;
+            //alert(res.data.msg)
           }   
         })
         .catch((err) => {
@@ -277,8 +283,10 @@ export default {
   regIp: "string",
   regWay: "string",
   shiftNo: "string",
-  userId: ""
-
+  userId: "",
+  showMore: true,
+  showModal: false,
+message: null,
     };
   },
   beforeMount() {
@@ -290,6 +298,47 @@ export default {
 
 <style scoped src="../../../frontend/components/pages/styles/Booking.page.css">
 
+</style>
+<style>
+.custom-modal {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,.8);
+  }
+  .inner-modal-wrap {
+    max-width: 600px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    min-height: 100px;
+}
+.custom-modal button.close-modal {
+    position: absolute;
+    top: -19px;
+    right: 0;
+    padding: 0;
+    border: 0;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    background: #f39118;
+    border-radius: 50%;
+    z-index: 9;
+    opacity:1 !important;
+}
+.custom-modal .modal-content {
+    border: 0;
+    font-size: 16px;
+    text-align: center;
+}
 </style>
 
 

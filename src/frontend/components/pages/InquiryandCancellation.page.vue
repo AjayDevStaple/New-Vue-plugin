@@ -124,7 +124,7 @@
               <td>{{ value.deptRoom }}</td>
               <td>{{ value.roomDesc }}</td>
               <td>{{ value.seqNo }}</td>
-              <td><Button v-on:click="cancelRegis(value.encounterNo)">Cancel inquiryation</Button></td>
+              <td><Button v-on:click="cancelRegis(value.encounterNo)">Cancel inquiry</Button></td>
             </tr>
           </tbody>
         </table>
