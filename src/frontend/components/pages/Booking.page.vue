@@ -65,7 +65,7 @@
                           type="radio"
                           id="loginID_1"
                           name="idType"
-                          value="1"
+                          value="99"
                           onclick="show_birth(3)"
                           v-model="idType"
                           checked
@@ -172,7 +172,7 @@
                     id="patData"
                     class="form-control"
                     placeholder="Please enter the mobile number"
-                    v-model="userId"
+                  
              
                   />
                   <small id="patData_txt" class="red warning_txt"></small>
@@ -275,7 +275,7 @@ export default {
   deptCode: "",
   deptRoom: "",
   docCode: "",
-  idType: "1",
+  idType: "99",
   opdDate: "2022-11-29T04:43:47.780Z",
   pass: "Kumar",
   password: "",
@@ -283,7 +283,7 @@ export default {
   regIp: "string",
   regWay: "string",
   shiftNo: "string",
-  userId: "",
+  userId: "webapp",
   showMore: true,
   showModal: false,
 message: null,
