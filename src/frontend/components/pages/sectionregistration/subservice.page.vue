@@ -159,7 +159,7 @@ export default {
                     _services.outGetWebSchebasic(data).then(res => {
                         this.arrayData0 = res.data.data
 
-                        if ( this.arrayData0.length > 1  ) {
+                        if ( this.arrayData0.length > 7  ) {
                             this.mainNumber = 2;
                         } else {
                             this.mainNumber = 1;
@@ -200,11 +200,7 @@ export default {
             /* console.log(dayName) */
         },
         DateConversation: function (id) {
-          
-
             var d = id.split("-");
-
-          
             var dayName = d[1] + '/' + d[2];
             return dayName;
             /* console.log(dayName) */
