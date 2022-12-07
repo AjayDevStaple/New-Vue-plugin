@@ -56,6 +56,11 @@ const routes: RouteRecordRaw[] = [
         name : 'See-Clinic',
         path: '/see-clinic' , component: () => import('../frontend/components/pages/see_clinic.page.vue')
     },
+    {
+        name : 'FirstVisit',
+        path: '/first_visit' , component: () => import('../frontend/components/pages/first_visit_registration.page.vue')
+    },
+        
 
 ]
 

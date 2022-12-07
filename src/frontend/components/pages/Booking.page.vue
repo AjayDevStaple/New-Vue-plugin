@@ -237,8 +237,22 @@ export default {
       }
       _services.outCheckFvRv(data)
         .then((res) => {
-          console.log(res.data.msg)
-          console.log(res.data.data)
+
+          const data4fstPage = {
+
+          }
+       
+          console.log(res.data.data.fvRv)
+
+          if ( res.data.data.fvRv === 'FV') {
+            this.$router.push({name: 'FirstVisit',
+          params: data4fstPage
+          })
+          }
+
+
+
+
           const data2send = {
               "opdDate" : this.$route.params.opdDate,
               "shiftNo" :  this.$route.params.shiftNo,
@@ -246,9 +260,10 @@ export default {
               "docName" :  "",
               "deptName" : "" ,
               "rsvOpdTime": "" ,
+             
             }
 
-          if(res.data.code == 200) {
+          if(res.data.code == 200 && res.data.data.fvRv != 'FV') {
             this.$router.push({name: 'Booking-Success',
           params: data2send
           })
