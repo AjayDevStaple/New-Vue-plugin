@@ -91,7 +91,7 @@
                 <span class="btn">build a healthier self</span>
                     <span class="btn">News/Education</span>
                     <span class="btn blue-btn">Print</span>
-    <!-- <p> {{this.$route.params}}</p> -->
+    <!-- <p> {{this.$route.params.fvRv}}</p> -->
             </div>
            </div>
           </Row>
