@@ -3,17 +3,22 @@
     <div class="title2">
       <h1 class="mjTitle">
         <span style="vertical-align: inherit;">
+
           Stop consultation query
+
         </span>
       </h1>
     </div>
     <form id="form1" name="form1" method="post" action="#sidebar_3">
       <div class="login w-100 d-flex flex-wrap justify-content-lg-between">
+
         <div class="form-group col-12 col-md-7 mb-3 mb-md-0">
+
           <label for=""><i class="fas fa-user-md"></i></label>
           <select  v-model="selected"  v-on:change="changeLocation($event)" :required class="custom-select" name="deptCode"
             id="deptCode">
             <option value="">
+
                 <span style="vertical-align: inherit;">Please select a subject</span>
             </option>
             <option  value="00">
@@ -78,10 +83,13 @@
             </option>
             <option value="27">
                 <span style="vertical-align: inherit;">Urology</span>
+
+
             </option>
             <option value="29">
            >
                 <span style="vertical-align: inherit;">neurosurgery</span>
+
             </option>
             <option value="2B">
                 <span style="vertical-align: inherit;">Pediatric Surgery</span>
@@ -130,18 +138,22 @@
             class="btn-style" @click="handleSubmit">
               <span style="vertical-align: inherit;">Inquire</span>
           </button></div>
+
       </div>
       <input type="hidden" name="Send">
       <input type="hidden" name="second" id="second" value="1">
       <input type="hidden" name="deptChName" id="deptChName">
     </form>
     <section style="position:relative;"><span id="main_dot" style="position:absolute;top:-120px"></span></section>
+
+
     <!-- <h1 v-if="showMore" class="text-center subHeading">{{departmentName}}</h1> -->
     <div class="register-table no-x">
       <table class="table-border-radius">
         <thead>
           <tr>
             <td class="txt-big">
+
                 <span style="vertical-align: inherit;">Consultation date</span>
             </td>
             <td>
@@ -159,12 +171,14 @@
             <td>
                 <span style="vertical-align: inherit;">Consulation/Status</span>
             </td>
+
           </tr>
         </thead>
         <tbody v-if="showMore">
           <tr v-for="(value, index) in respData">
             <td> {{value.opdDate}}</td>
             <td> {{value.shiftNo}}</td>
+
             <td>{{value.deptRoom}}</td>
             <td> {{value.deptName}}</td>
             <td> {{value.docName}}</td>
@@ -183,6 +197,7 @@
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import { _services } from "./../../../Services/Api/index";
 import { toRaw } from "vue";
@@ -195,25 +210,31 @@ export default {
   },
   methods: {
     handleSubmit() {
+
       const data = {
         deptCode: this.selected,
         idType: "1",
         pass: "Kumar",
         userId: "webapp"
       }
+
       _services.outGetDeptBasic(data)
         .then((res) => {
           console.log(res.data.code)
           if (res.data.code == 200) {
+
             this.showMore = true;
           }
+
           this.respData = res.data.data;
           console.log(toRaw(this.respData))
         })
         .catch((err) => {
           console.log(err);
         });
+
     },
+
   },
   data() {
     return {
@@ -223,10 +244,15 @@ export default {
       departmentName: "",
       startDate : "",
       endDate : ""
+
+
+    
+
     }
   }
 }
 </script>
+
 
 <style>
 .date-picker .v3dp__input_wrapper input {
@@ -240,6 +266,7 @@ text-align: center;
   margin: 0 8px;
 }
 </style>
+
 
 <style scoped src="../../components/pages/styles/stop_consulation_query.css">
 
