@@ -185,7 +185,7 @@ span.dotted-area {
     border-color: transparent;
 }
 
-.remind-Block ol li {
+.remind-Block ol     li {
     padding: 0 !important;
     font-size: 13px;
 }

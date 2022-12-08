@@ -33,6 +33,7 @@
     position: relative;
 }
 
+
 .login select {
     margin-left: 6px;
     height: 44px;
@@ -41,6 +42,10 @@
     outline: none;
     transition: all .3s linear;
     border-radius: 3px;
+
+    width: calc(100% - 360px);
+    margin-right: 40px;
+
 }
 button.btn-style {
     display: inline-block;
@@ -66,6 +71,7 @@ button.btn-style {
     margin: 0 0 30px 0;
     text-transform: capitalize;
 }
+
 
 /* table Css */
 .register-table table {
@@ -114,3 +120,18 @@ button.btn-style {
 .btn-wrap button.btn-style:nth-child(2) {
     margin-left: 10px;
 }
+.date-picker {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
