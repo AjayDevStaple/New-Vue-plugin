@@ -224,7 +224,7 @@ export default {
           birthDate: this.birthDate, //input
           deptCode: this.$route.params.deptCode,
           deptRoom: this.$route.params.deptRoom,
-          docCode: this.$route.params.deptRoom,
+          docCode: this.$route.params.docCode,
           idType: this.idType, //input
           opdDate: this.$route.params.opdDate,
           pass: "Kumar",
@@ -239,6 +239,13 @@ export default {
         .then((res) => {
 
           const data4fstPage = {
+            "deptCode": this.$route.params.deptCode ,
+            "docCode": this.$route.params.docCode,
+            "opdDate" : this.$route.params.opdDate,
+            "shiftNo" :  this.$route.params.shiftNo,
+            "deptRoom" :  this.$route.params.deptRoom,
+         
+      
 
           }
        
@@ -263,6 +270,9 @@ export default {
              
             }
 
+
+        
+
           if(res.data.code == 200 && res.data.data.fvRv != 'FV') {
             this.$router.push({name: 'Booking-Success',
           params: data2send
@@ -271,7 +281,7 @@ export default {
           
             this.showModal = true;
             this.message = res.data.msg;
-            //alert(res.data.msg)
+     
           }   
         })
         .catch((err) => {
