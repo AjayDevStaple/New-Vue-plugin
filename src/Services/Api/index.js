@@ -29,8 +29,13 @@ const outCnclRegRegbasic = async (data) => {
 const outSetRegWebChrbas = async (data) => {
   return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outSetRegWebChrbas` , data)
 } 
+const outGetDeptBasic = async (data) => {
+  return await axiosApiInstance.post(`${url}api/his7/reg/websrv/outGetDeptBasic` , data)
+}
+
 
 export const _services = {
+  outGetDeptBasic,
   outSetRegWebChrbas,
   outGetRegRegbasic ,
   outGetWebList,
