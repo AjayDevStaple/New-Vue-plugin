@@ -21,6 +21,8 @@
     "v-calendar": "^2.4.1",
     "vue-router": "^4.0.15",
     "vue2": "^1.0.0",
+    "vue2-datepicker": "^3.11.1",
+    "vue3-datepicker": "^0.3.4",
     "vuejs-datepicker": "^1.6.2",
     "vuex": "^4.0.2"
   },

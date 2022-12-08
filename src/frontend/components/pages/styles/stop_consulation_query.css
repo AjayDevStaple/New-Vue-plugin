@@ -1,0 +1,116 @@
+.mjTitle{
+    position: relative;
+    margin: 30px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #dddd;
+    padding: 15px 0;
+    text-transform: capitalize;
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+
+.mjTitle:before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: #447A6A;
+    position: absolute;
+    top: -3px;
+    left: 0;
+}
+.login {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 5px 12px rgb(0 0 0 / 15%);
+    margin-bottom: 40px;
+}
+.login .form-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.login select {
+    margin-left: 6px;
+    height: 44px;
+    /* line-height: 44px; */
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all .3s linear;
+    border-radius: 3px;
+}
+button.btn-style {
+    display: inline-block;
+    border: none;
+    border-radius: 50px;
+    background: #447A6A;
+    color: #fff;
+    min-width: 100px;
+    min-height: 36px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+}
+.form-group label i {
+    color: #447A6A;
+    font-size: 1.5rem;
+}
+.login .form-group label {
+    margin: 0;
+}
+.subHeading {
+    font-size: 32px;
+    margin: 0 0 30px 0;
+    text-transform: capitalize;
+}
+
+/* table Css */
+.register-table table {
+    width: 100%;
+    border-left: solid thin #ddd;
+    border-top: solid thin #ddd;
+}
+.register-table table thead {
+    background: #447A6A;
+    color: #fff;
+}
+.register-table table td {
+    padding: 1rem 0.5rem;
+    text-align: center;
+    border-right: solid thin #ddd;
+    border-bottom: solid thin #ddd;
+}
+.register-table table thead td {
+    border: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: normal;
+}
+.register-table .txt-big {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+.register-table table td span{line-height: normal;display: block;}
+.register-table table td {
+    padding: 1rem 0.5rem;
+    text-align: center;
+    border-right: solid thin #ddd;
+    border-bottom: solid thin #ddd;
+}
+.table-border-radius {
+    padding: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 3px 12px rgb(0 0 0 / 10%);
+}
+.btn-wrap {
+    margin: 40px auto auto auto;
+    display: table;
+}
+.btn-wrap button.btn-style:nth-child(2) {
+    margin-left: 10px;
+}
